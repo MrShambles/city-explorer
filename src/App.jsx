@@ -3,6 +3,7 @@ import SearchForm from './SearchForm';
 import LocationInfo from './LocationInfo';
 import ErrorMessage from './ErrorMessage';
 
+
 function App() {
   const [city, setCity] = useState('');
   const [location, setLocation] = useState({});
@@ -36,11 +37,15 @@ function App() {
   }
 
   return (
-    <>
-      <SearchForm setCity={setCity} getLocation={getLocation} />
-      {error && <ErrorMessage message={error} />}
-      {location.display_name && <LocationInfo location={location} accessToken={accessToken} />}
-    </>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <SearchForm setCity={setCity} getLocation={getLocation} />
+          {error && <ErrorMessage message={error} />}
+          {location.display_name && <LocationInfo location={location} accessToken={accessToken} />}
+        </div>
+      </div>
+    </div>
   );
 }
 
