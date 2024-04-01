@@ -11,10 +11,16 @@ function SearchForm({ setCity, getLocation }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input placeholder="Type a City Name" onChange={handleNewCity} />
+    <form onSubmit={handleSubmit} className="mb-3">
+      <input 
+        type="text" 
+        className="form-control" 
+        placeholder="Type a City Name" 
+        onChange={handleNewCity} 
+      />
     </form>
   );
 }
 
 export default SearchForm;
+

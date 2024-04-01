@@ -3,17 +3,23 @@ import React from 'react';
 function LocationInfo({ location, accessToken }) {
   return (
     <>
-      <section>
-        <h4>Location Information For: {location.display_name}</h4>
-        {/* Displaying Latitude and Longitude */}
-        <p>Latitude: {location.lat}</p>
-        <p>Longitude: {location.lon}</p>
-      </section>
-      {location.lat && location.lon && (
-        <section>
-          <img alt="Location Map" src={`https://maps.locationiq.com/v3/staticmap?key=${accessToken}&center=${location.lat},${location.lon}&size=500x440&zoom=10`} />
-        </section>
-      )}
+      <div className="card text-center my-3">
+        <div className="card-header">
+          Location Information
+        </div>
+        <div className="card-body">
+          <h5 className="card-title">{location.display_name}</h5>
+          <p className="card-text">Latitude: {location.lat}</p>
+          <p className="card-text">Longitude: {location.lon}</p>
+          {location.lat && location.lon && (
+            <img 
+              src={`https://maps.locationiq.com/v3/staticmap?key=${accessToken}&center=${location.lat},${location.lon}&size=500x440&zoom=10`} 
+              className="card-img-top my-2"
+              alt="Location Map" 
+            />
+          )}
+        </div>
+      </div>
     </>
   );
 }
